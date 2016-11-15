@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         transform.position += direction * Time.deltaTime;
         if(transform.position.x <= 1.2)
         {
@@ -21,7 +22,8 @@ public class Enemy : MonoBehaviour
         if(transform.position.x >= -9)
         {
             direction = new Vector3(-1,-.1f);
-        }
+        }*/
+        transform.position = Vector3.MoveTowards(transform.position, FindObjectOfType<Player>().transform.position, Time.deltaTime);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

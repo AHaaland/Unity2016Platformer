@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     const float DEAD_ZONE_HEIGHT = -4;
     public float maxSpeed = 30;
     private bool isDucking = false;
-    public float jumpForce = 5;
+    public float jumpForce = 50;
     private Vector3 startPosition;
     private new Rigidbody2D rigidbody2D;
 
