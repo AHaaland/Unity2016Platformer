@@ -9,11 +9,19 @@ public class Enemy : MonoBehaviour
     {
 
     }
-
+    Vector3 direction = new Vector3(-1,-.1f);
     // Update is called once per frame
     void Update()
     {
-
+        transform.position += direction * Time.deltaTime;
+        if(transform.position.x <= 1.2)
+        {
+            direction = new Vector3(1,.1f);
+        }
+        if(transform.position.x >= -9)
+        {
+            direction = new Vector3(-1,-.1f);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
