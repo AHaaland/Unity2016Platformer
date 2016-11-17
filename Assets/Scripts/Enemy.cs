@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        /* Movement type 1
         transform.position += direction * Time.deltaTime;
         if(transform.position.x <= 1.2)
         {
@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour
         {
             direction = new Vector3(-1,-.1f);
         }*/
+        /* Movement type 2
         transform.position = Vector3.MoveTowards(transform.position, FindObjectOfType<Player>().transform.position, Time.deltaTime);
+        */
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
