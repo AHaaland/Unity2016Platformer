@@ -7,8 +7,11 @@ public class Coin : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        this.gameObject.SetActive(false);
-        FindObjectOfType<GM>().CoinCollection(worth);
+        if (GetComponent<Collider>().GetComponentInParent<Player>())
+        {
+            this.gameObject.SetActive(false);
+            FindObjectOfType<GM>().CoinCollection(worth);
+        }
       
     }
 }
