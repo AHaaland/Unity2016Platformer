@@ -17,8 +17,10 @@ public class Weapon : MonoBehaviour
     }
     public void Attack()
     {
-        var r = (GameObject)Instantiate(projectile,new Vector3(2,0),Quaternion.identity,transform);
+        var r = (GameObject)Instantiate(projectile);
+        r.transform.parent = transform;
         r.transform.localPosition = new Vector3(-5, 0);
+        r.transform.parent = null;
         r.GetComponent<Rigidbody2D>().velocity = new Vector2(2, 0);
     }
 
@@ -27,9 +29,9 @@ public class Weapon : MonoBehaviour
         var player = collision.GetComponentInParent<Player>();
         if (player != null)
         {
-            this.transform.parent = player.transform;
-            this.transform.localPosition = new Vector3(0.01f, 0.3f);
             player.currentWeapon = this;
+            this.transform.parent = player.transform;
+            this.transform.localPosition = new Vector3(0.01f, 0.35f);        
         }
     }
 }
