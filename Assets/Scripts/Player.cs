@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
     public float maxSpeed = 30;
     private bool isDucking = false;
     public float jumpForce = 30;
+    public Weapon currentWeapon;
+
     private Vector3 startPosition;
     private new Rigidbody2D rigidbody2D;
 
@@ -31,6 +33,10 @@ public class Player : MonoBehaviour {
         if(Input.GetButtonDown("Jump") && rigidbody2D.velocity.y == 0)
         {
             rigidbody2D.velocity += Vector2.up * jumpForce;
+        }
+        if(Input.GetButtonDown("Fire1") && currentWeapon != null)
+        {
+            currentWeapon.Attack();
         }
         //Duck if arrow down
         if(Input.GetAxis("Vertical") < 0 && !isDucking)
