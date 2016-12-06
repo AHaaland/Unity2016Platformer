@@ -19,9 +19,11 @@ public class Weapon : MonoBehaviour
     {
         var r = (GameObject)Instantiate(projectile);
         r.transform.parent = transform;
+        r.transform.localScale = new Vector3(1,1);
         r.transform.localPosition = new Vector3(-5, 0);
+        r.transform.localRotation = new Quaternion();
+        r.GetComponent<Rigidbody2D>().AddForce(r.transform.TransformDirection(new Vector2(-2000,0)));
         r.transform.parent = null;
-        r.GetComponent<Rigidbody2D>().velocity = new Vector2(2, 0);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
