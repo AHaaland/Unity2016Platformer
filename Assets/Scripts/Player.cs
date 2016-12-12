@@ -4,7 +4,7 @@ using System;
 
 public class Player : MonoBehaviour {
 
-    const float DEAD_ZONE_HEIGHT = -4;
+    const float DEAD_ZONE_HEIGHT = -5;
     public float maxSpeed = 30;
     private bool isDucking = false;
     public float jumpForce = 30;
