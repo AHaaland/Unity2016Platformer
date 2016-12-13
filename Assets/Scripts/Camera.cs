@@ -9,7 +9,6 @@ public class Camera : MonoBehaviour {
 	void Start () {
         player = FindObjectOfType<Player>();
         offset = transform.position - player.transform.position;
-        Debug.Log(offset);
 	}
 	
 	// Update is called once per frame

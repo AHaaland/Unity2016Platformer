@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     private bool isDucking = false;
     public float jumpForce = 30;
     public Weapon currentWeapon;
+    private Vector3 wayPtPos;
 
     private Vector3 startPosition;
     private new Rigidbody2D rigidbody2D;
@@ -60,10 +61,18 @@ public class Player : MonoBehaviour {
             transform.rotation = new Quaternion(0, 180, 0, 0);
         }
 	}
-
+    public void SetWayPt(Vector3 wayptSetter)
+    {
+        wayPtPos = wayptSetter;
+    }
     public void Die()
     {
-        transform.position = startPosition;
+        if(wayPtPos != null)
+            transform.position = wayPtPos;
+        else
+        {
+            transform.position = startPosition;
+        }
         rigidbody2D.velocity = new Vector2();
         FindObjectOfType<GM>().LifeLost();
     }

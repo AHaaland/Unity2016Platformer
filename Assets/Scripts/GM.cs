@@ -12,6 +12,7 @@ public class GM : MonoBehaviour {
 	private bool isPaused = false;
     public GameObject outSign;
     public GameObject winSign;
+    public GameObject pauseSign;
     //Text components to update values of the UI
     public Text coinsText;
     public Text livesText;
@@ -29,6 +30,7 @@ public class GM : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.P)) {
 			isPaused = !isPaused;
+            pauseSign.SetActive(isPaused);
 		}
 		Time.timeScale = isPaused ? 0 : 1;
 	}
@@ -42,8 +44,12 @@ public class GM : MonoBehaviour {
 	public void winner()
 	{
 		winSign.SetActive(true);
-        Debug.Log("dubteffff");
 	}
+    public void potionTrigger()
+    {
+        health = healthMax;
+        healthText.text = health.ToString();
+    }
     public void LifeLost()
     {
 		if (health <= 0) {
