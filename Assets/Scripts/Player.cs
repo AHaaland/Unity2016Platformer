@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public float jumpForce = 30;
     public Weapon currentWeapon;
     private Vector3 wayPtPos;
+    
 
     private Vector3 startPosition;
     private new Rigidbody2D rigidbody2D;
