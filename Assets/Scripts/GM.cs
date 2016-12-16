@@ -17,6 +17,7 @@ public class GM : MonoBehaviour {
     public Text coinsText;
     public Text livesText;
 	public Text healthText;
+    public Text ammoText;
     // Use this for initialization
     void Start () {
 		health = healthMax;
@@ -65,5 +66,9 @@ public class GM : MonoBehaviour {
 			health--;
 			healthText.text = health.ToString ();
 		}
+    }
+    public void updateTextAmmo(int ammoAmt)
+    {
+        ammoText.text = ammoAmt.ToString();
     }
 }

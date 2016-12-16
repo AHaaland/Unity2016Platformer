@@ -5,11 +5,11 @@ public class Weapon : MonoBehaviour
 {
     public GameObject projectile;
     public int ammoLeft = 5;
-   
+    GM manager;
     // Use this for initialization
     void Start()
     {
-
+        manager = FindObjectOfType<GM>();
     }
 
     // Update is called once per frame
@@ -29,11 +29,13 @@ public class Weapon : MonoBehaviour
             r.GetComponent<Rigidbody2D>().AddForce(r.transform.TransformDirection(new Vector2(-2000, 0)));
             r.transform.parent = null;
             ammoLeft--;
+            manager.updateTextAmmo(ammoLeft);
         }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        manager.updateTextAmmo(ammoLeft);
         var player = collision.GetComponentInParent<Player>();
         if (player != null)
         {
@@ -45,5 +47,6 @@ public class Weapon : MonoBehaviour
     public void ammoPickup(int pickupSize)
     {
         ammoLeft += pickupSize;
+        manager.updateTextAmmo(ammoLeft);
     }
 }
